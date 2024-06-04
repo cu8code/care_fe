@@ -1103,7 +1103,7 @@ export const ConsultationForm = ({ facilityId, patientId, id }: Props) => {
                         placeholder="Weight"
                         trailingPadding=" "
                         trailing={
-                          <p className="mr-8 text-sm text-gray-700">
+                          <p className="absolute right-10 whitespace-nowrap text-sm text-gray-700">
                             Weight (kg)
                           </p>
                         }
@@ -1116,7 +1116,7 @@ export const ConsultationForm = ({ facilityId, patientId, id }: Props) => {
                         placeholder="Height"
                         trailingPadding=" "
                         trailing={
-                          <p className="mr-8 text-sm text-gray-700">
+                          <p className="absolute right-10 whitespace-nowrap text-sm text-gray-700">
                             Height (cm)
                           </p>
                         }
@@ -1148,6 +1148,14 @@ export const ConsultationForm = ({ facilityId, patientId, id }: Props) => {
                       options={CONSULTATION_SUGGESTION.filter(
                         (option) => !("deprecated" in option),
                       )}
+                      optionDisabled={(option) =>
+                        isUpdate && "editDisabled" in option
+                      }
+                      optionDescription={(option) =>
+                        isUpdate && "editDisabled" in option
+                          ? t("encounter_suggestion_edit_disallowed")
+                          : undefined
+                      }
                     />
                   </div>
 
