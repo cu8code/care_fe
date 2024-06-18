@@ -10,6 +10,7 @@ import { ConsultationDetails } from "../../Components/Facility/ConsultationDetai
 import TreatmentSummary from "../../Components/Facility/TreatmentSummary";
 import ConsultationDoctorNotes from "../../Components/Facility/ConsultationDoctorNotes";
 import PatientConsentRecords from "../../Components/Patient/PatientConsentRecords";
+import LogUpdateForm from "../../Components/LogUpdate/LogUpdateForm";
 
 export default {
   "/facility/:facilityId/patient/:patientId/consultation": ({
@@ -95,6 +96,14 @@ export default {
         patientId={patientId}
         consultationId={consultationId}
         id={id}
+      />
+    ),
+  "/facility/:facilityId/patient/:patientId/consultation/:consultationId/daily-round/new":
+    ({ facilityId, patientId, consultationId }: any) => (
+      <LogUpdateForm
+        facilityId={facilityId}
+        patientId={patientId}
+        consultationId={consultationId}
       />
     ),
 
